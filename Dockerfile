@@ -13,6 +13,3 @@ RUN yum update && yum install -y groff
 
 # include aws exec in the PATH env var
 ENV PATH=$PATH:/root/.local/bin/
-
-# default aws profile
-ENV AWS_PROFILE=memed

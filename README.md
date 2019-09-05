@@ -8,6 +8,8 @@ Amazon Linux docker image with `aws-cli` installed.
 
 ## Running
 
+1. Using credentials:
+
 ```bash
 docker run -it \
 -v $HOME/.aws:/root/.aws \
@@ -16,4 +18,14 @@ memeddev/docker-aws-cli:0.1.0 aws s3 ls
 ```
 
 > For security reasons, the image does not contains AWS Credentials. Therefore, user must pass `$HOME/.aws` as volume, and `-e AWS_PROFILE=<some-profile>` to have access to AWS API.
-> More information at [AWS Docs](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/cli-configure-files.html).
+
+2. Using env vars:
+
+```bash
+docker run -it \
+-e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+-e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+memeddev/docker-aws-cli:0.1.0 aws s3 ls
+```
+
+> More information about authentication at [AWS CLI Docs](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/cli-chap-configure.html).
