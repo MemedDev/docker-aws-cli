@@ -14,5 +14,8 @@ RUN yum update && yum install -y groff
 # Add zip and unzip
 RUN yum update && yum install -y zip unzip
 
+# Add jq
+RUN yum update && yum install -y jq
+
 # include aws exec in the PATH env var
 ENV PATH=$PATH:/root/.local/bin/
