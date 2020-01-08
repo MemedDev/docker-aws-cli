@@ -17,5 +17,8 @@ RUN yum update && yum install -y zip unzip
 # Add jq
 RUN yum update && yum install -y jq
 
+# Add bc
+RUN yum update && yum install -y bc
+
 # include aws exec in the PATH env var
 ENV PATH=$PATH:/root/.local/bin/
