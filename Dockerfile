@@ -5,23 +5,10 @@ MAINTAINER Memed SRE Team <sre@memed.com.br>
 # include aws exec in the PATH env var
 ENV PATH=$PATH:/root/.local/bin/
 
-# Add PIP
-RUN yum update -y && yum install -y python-pip
-
-# Add AWS CLI
-RUN pip install --user awscli
-
-# Add Groff
-RUN yum install -y groff
-
-# Add zip and unzip
-RUN yum install -y zip unzip
-
-# Add jq
-RUN yum install -y jq
-
-# Add bc
-RUN yum install -y bc
+# Add PIP, Groff, zip, unzip, jq, bc, AWS CLI
+RUN yum update -y &&\
+    yum install -y python-pip groff zip unzip jq bc &&\
+    pip install --user awscli
 
 # Add nodejs
 RUN yum install -y curl &&\
